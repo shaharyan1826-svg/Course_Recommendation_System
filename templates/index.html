@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Course Recommendation System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 28px 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 35px auto;
+            padding: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .results {
+            margin-top: 25px;
+        }
+
+        .course {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 9px;
+            padding: 15px;
+            margin: 12px 0;
+        }
+
+        .score {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px;
+            border-radius: 7px;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>AI Course Recommendation System</h1>
+    <p>Discover courses that match your interests and career goals</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Find Your Best Courses</h2>
+
+        <form method="POST">
+
+            <label>Your Student ID</label>
+            <input
+                type="text"
+                name="student_id"
+                placeholder="Example: S1"
+                required
+            >
+
+            <label>Your Interests and Skills</label>
+            <input
+                type="text"
+                name="interests"
+                placeholder="Python, Data Science, Programming"
+                required
+            >
+
+            <label>Your Career Goal</label>
+            <select name="career_goal" required>
+                <option value="">Select your career goal</option>
+                <option>Data Scientist</option>
+                <option>AI Engineer</option>
+                <option>Software Developer</option>
+                <option>Web Developer</option>
+                <option>Frontend Developer</option>
+                <option>Data Analyst</option>
+                <option>Cloud Engineer</option>
+                <option>Cybersecurity Analyst</option>
+                <option>Database Administrator</option>
+                <option>DevOps Engineer</option>
+            </select>
+
+            <button type="submit">
+                Recommend Courses
+            </button>
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if recommendations is not none %}
+            <div class="results">
+                <h2>Recommended Courses</h2>
+
+                {% if recommendations.empty %}
+                    <p>No recommendations available.</p>
+                {% else %}
+                    {% for index, course in recommendations.iterrows() %}
+                        <div class="course">
+                            <h3>{{ loop.index }}. {{ course.title }}</h3>
+                            <p>Category: {{ course.category }}</p>
+                            <p class="score">
+                                Match Score:
+                                {{ "%.2f"|format(course.hybrid_score * 100) }}%
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<footer>
+    AI Course Recommendation System | Internship Project AI-LT-001
+</footer>
+
+</body>
+</html>

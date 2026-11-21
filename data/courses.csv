@@ -1,0 +1,16 @@
+course_id,title,category,skills,career_goal,description
+1,Python for Beginners,Programming,Python basics Software Development,Software Developer,Learn Python programming fundamentals
+2,Machine Learning Basics,AI,Python Machine Learning Data Science,AI Engineer,Learn machine learning algorithms
+3,Data Science with Python,Data Science,Python Pandas NumPy,Data Scientist,Analyze and visualize data
+4,Web Development with Flask,Web Development,Python Flask HTML CSS,Web Developer,Build web applications
+5,Deep Learning Fundamentals,AI,Python Neural Networks,AI Engineer,Learn deep learning
+6,SQL Database Management,Database,SQL Database Design,Database Administrator,Manage relational databases
+7,Java Programming,Programming,Java OOP Programming,Software Developer,Learn Java programming
+8,Frontend Development,Web Development,HTML CSS JavaScript,Frontend Developer,Build website interfaces
+9,Data Visualization,Data Science,Python Matplotlib Visualization,Data Analyst,Create data visualizations
+10,Cloud Computing,Cloud,Cloud AWS Deployment,Cloud Engineer,Understand cloud platforms
+11,Cybersecurity Basics,Security,Networking Security Linux,Cybersecurity Analyst,Learn security fundamentals
+12,Artificial Intelligence,AI,Python AI Machine Learning,AI Engineer,Explore artificial intelligence
+13,Power BI Analytics,Data Science,Power BI Excel Analytics,Data Analyst,Build business dashboards
+14,React Development,Web Development,JavaScript React Frontend,Frontend Developer,Build interactive websites
+15,DevOps Fundamentals,DevOps,Linux Docker CI CD,DevOps Engineer,Learn deployment automation
